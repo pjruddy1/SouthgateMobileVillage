@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Southgate Mobile Village</h1>
+    <p class="lead">Check out your new home today!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2><a class="btn btn-default">@Html.ActionLink("Buy Homes", "Index", "Home4Sale")</a></h2>
+        <img src="~/Content/images/trailor1.jpg" style="width:50%" />
+    </div>
+    <div class="col-md-4">
+        <h2><a class="btn btn-default">@Html.ActionLink("Rent Homes", "Index", "Home4Sale")</a></h2>
+        <img src="~/Content/images/trailor5.jpg" style="width:50%" />
+    </div>
+    <div class="col-md-4">
+        <h2><a class="btn btn-default"> @Html.ActionLink("Sell Homes", "AddHome4Sale", "AddSale")</a></h2>
+        <img src="~/Content/images/trailor3.jpg" style="width:50%" />
+    </div>
+</div>

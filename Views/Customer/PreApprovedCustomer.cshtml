@@ -1,0 +1,39 @@
+﻿@model SouthgateMobileVillage.Models.Customer
+@{
+    ViewBag.Title = "Customer Approval";
+    var ApprovalMessage = "";
+    if (IsPost)
+    {
+        var name = Request["firstName"] + " " + Request["lastName"];
+        var income = Request["income"];
+        var approvedAmount = income.AsFloat() * .33;
+        var message = "";
+        if (approvedAmount < 500)
+        {
+            message = "Unfortunately we could't pre-approve you.  Let us dig a little further and we will contact you.";
+        }
+        else if (approvedAmount >= 500 && approvedAmount < 600)
+        {
+            message = "I looks like your approved for our mid-ranged homes!";
+        }        
+        else
+        {
+            message += "You've been pre-approved for any one of out homes!";
+        }
+
+        ApprovalMessage = name + " We will follow up with you once we have recieved your proof of income. " + message;
+    }
+}
+
+<h2>Approval Form</h2>
+<html>
+<body>
+    <form action="" method="post">
+        <p>First Name:<input type="text" name="firstName" id="firstName" /></p>
+        <p>Last Name:<input type="text" name="lastName" id="lastName" /></p>
+        <p>Monthly Income:<input type="number" name="income" id="income" /></p>
+        <p><button type="submit">Submit</button></p>
+    </form>
+    <p>@ApprovalMessage</p>
+</body>
+</html>
