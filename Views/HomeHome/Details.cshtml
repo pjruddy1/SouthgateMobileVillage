@@ -1,0 +1,50 @@
+﻿@model SouthgateMobileVillage.Models.Home
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Home</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bedroom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bedroom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bathroom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bathroom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SqrFeet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SqrFeet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

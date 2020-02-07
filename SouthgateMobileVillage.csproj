@@ -172,9 +172,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddSaleController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\Home4SaleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomeHomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ResidentController.cs" />
     <Compile Include="DAL\ResidentContext.cs" />
     <Compile Include="DAL\ResidentInitalizer.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,6 +202,7 @@
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.df.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\mainRd.jpg" />
     <Content Include="Content\images\office1.jpg" />
@@ -370,6 +374,21 @@
     <Content Include="Views\AddSale\Home4SaleConfirm.cshtml" />
     <Content Include="Views\Customer\PreApprovedCustomer.cshtml" />
     <Content Include="Views\Home4Sale\Index.cshtml" />
+    <Content Include="Views\HomeHome\Create.cshtml" />
+    <Content Include="Views\HomeHome\Delete.cshtml" />
+    <Content Include="Views\HomeHome\Details.cshtml" />
+    <Content Include="Views\HomeHome\Edit.cshtml" />
+    <Content Include="Views\HomeHome\Index.cshtml" />
+    <Content Include="Views\Graphic\Create.cshtml" />
+    <Content Include="Views\Graphic\Delete.cshtml" />
+    <Content Include="Views\Graphic\Details.cshtml" />
+    <Content Include="Views\Graphic\Edit.cshtml" />
+    <Content Include="Views\Graphic\Index.cshtml" />
+    <Content Include="Views\Resident\Create.cshtml" />
+    <Content Include="Views\Resident\Delete.cshtml" />
+    <Content Include="Views\Resident\Details.cshtml" />
+    <Content Include="Views\Resident\Edit.cshtml" />
+    <Content Include="Views\Resident\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
