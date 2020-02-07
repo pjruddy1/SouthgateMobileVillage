@@ -5,17 +5,19 @@ using System.Web;
 
 namespace SouthgateMobileVillage.Models
 {
-    public class Home4Rent
+    public enum Amenity
+    {
+        NONE, AIR, TRASH, SHED, WASHER, DRYER, DISHWASHER
+    }
+    public class Home
     {
         public int ID { get; set; }
-        public int AmenityID { get; set; }
-        public double Price { get; set; }
         public int Bedroom { get; set; }
         public int Bathroom { get; set; }
         public int SqrFeet { get; set; }
-        public int Lot { get; set; }
-        public string Model { get; set; }
-        public string Description { get; set; }
         public int Year { get; set; }
+        public virtual ICollection<Graphic> Photo { get; set; }
+        public virtual ICollection<Resident> Resident { get; set; }
+        public virtual ICollection<Amenity> Amenity { get; set; }
     }
 }

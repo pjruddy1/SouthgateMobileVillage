@@ -7,6 +7,8 @@ namespace SouthgateMobileVillage.Models
 {
     public class Home4Sale
     {
+        public int ID { get; set; }
+        public int AmenityID { get; set; }
         public double Price { get; set; }
         public int Bedroom { get; set; }
         public int Bathroom { get; set; }
