@@ -204,6 +204,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.df.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\handShake.jpg" />
     <Content Include="Content\images\mainRd.jpg" />
     <Content Include="Content\images\office1.jpg" />
     <Content Include="Content\images\park.jpg" />

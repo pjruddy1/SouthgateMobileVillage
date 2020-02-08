@@ -1,23 +1,108 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" background style="height:75vh; background-size: cover; background-image:url('/Content/images/handShake.jpg');">
 
-<div class="jumbotron">
-    <h1>Southgate Mobile Village</h1>
-    <p class="lead">Check out your new home today!</p>
+    <div class="container-fluid">
+        <div class="row  justify-content-center align-items-center d-flex text-center h-100">
+            <div class="col-12 col-md-8  h-50 ">
+                <h1 class="display-2  text-dark mb-2 mt-5 d-none d-md-block"><strong>Southgate Mobile Village</strong> </h1>
+
+                <div class="btn bg-secondary shadow-lg btn-round text-light btn-lg btn-rised">@Html.ActionLink("Find Your New Home", "Index", "Home4Sale")</div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="row" style="margin-top:5%;">
+    <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="~/Content/images/RTrailor1.jpg" alt="mobile home"></a>
+            <div class="card-body">
+                @Html.ActionLink("New Home", "Index", "Home4Sale")
+                <p class="card-text">
+                    <i class="fas fa-dollar-sign"></i>: 45,000<br />
+                    <i class="fas fa-expand-arrows-alt"></i>: 1000 Sq ft<br />
+                    <i class="fas fa-bed"></i>: 2 Beadrooms<br />
+                    <i class="fas fa-toilet"></i>: 2 Bathrooms
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="~/Content/images/RTrailor2.jpg" alt="mobile home"></a>
+            <div class="card-body">
+                @Html.ActionLink("New Home", "Index", "Home4Sale")
+                <p class="card-text">
+                    <i class="fas fa-dollar-sign"></i>: 50,000<br />
+                    <i class="fas fa-expand-arrows-alt"></i>: 1150 Sq ft<br />
+                    <i class="fas fa-bed"></i>: 3 Beadrooms<br />
+                    <i class="fas fa-toilet"></i>: 2 Bathrooms
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="~/Content/images/RTrailor3.jpg" alt="mobile home"></a>
+            <div class="card-body">
+                @Html.ActionLink("New Home", "Index", "Home4Sale")
+                <p class="card-text">
+                    <i class="fas fa-dollar-sign"></i>: 41,000<br />
+                    <i class="fas fa-expand-arrows-alt"></i>: 900 Sq ft<br />
+                    <i class="fas fa-bed"></i>: 2 Beadrooms<br />
+                    <i class="fas fa-toilet"></i>: 2 Bathrooms
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="~/Content/images/RTrailor4.jpg" alt="mobile home"></a>
+            <div class="card-body">
+                @Html.ActionLink("New Home", "Index", "Home4Sale")
+                <p class="card-text">
+                    <i class="fas fa-dollar-sign"></i>: 38,000<br />
+                    <i class="fas fa-expand-arrows-alt"></i>: 950 Sq ft<br />
+                    <i class="fas fa-bed"></i>: 2 Beadrooms<br />
+                    <i class="fas fa-toilet"></i>: 2 Bathrooms
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="~/Content/images/RTrailor5.jpg" alt="mobile home"></a>
+            <div class="card-body">
+                @Html.ActionLink("New Home", "Index", "Home4Sale")
+                <p class="card-text">
+                    <i class="fas fa-dollar-sign"></i>: 46,000<br />
+                    <i class="fas fa-expand-arrows-alt"></i>: 975 Sq ft<br />
+                    <i class="fas fa-bed"></i>: 2 Beadrooms<br />
+                    <i class="fas fa-toilet"></i>: 2 Bathrooms
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="~/Content/images/RTrailor6.jpg" alt="mobile home"></a>
+            <div class="card-body">
+                @Html.ActionLink("New Home", "Index", "Home4Sale")
+                <p class="card-text">
+                    <i class="fas fa-dollar-sign"></i>: 52,000<br />
+                    <i class="fas fa-expand-arrows-alt"></i>: 1050 Sq ft<br />
+                    <i class="fas fa-bed"></i>: 3 Beadrooms<br />
+                    <i class="fas fa-toilet"></i>: 2 Bathrooms
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2><a class="btn btn-default">@Html.ActionLink("Buy Homes", "Index", "Home4Sale")</a></h2>
-        <img src="~/Content/images/trailor1.jpg" style="width:50%" />
-    </div>
-    <div class="col-md-4">
-        <h2><a class="btn btn-default">@Html.ActionLink("Rent Homes", "Index", "Home4Sale")</a></h2>
-        <img src="~/Content/images/trailor5.jpg" style="width:50%" />
-    </div>
-    <div class="col-md-4">
-        <h2><a class="btn btn-default"> @Html.ActionLink("Sell Homes", "AddHome4Sale", "AddSale")</a></h2>
-        <img src="~/Content/images/trailor3.jpg" style="width:50%" />
-    </div>
-</div>
+
+
+

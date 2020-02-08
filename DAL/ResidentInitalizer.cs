@@ -6,7 +6,7 @@ using SouthgateMobileVillage.Models;
 
 namespace SouthgateMobileVillage.DAL
 {
-    public class ResidentInitalizer : System.Data.Entity.DropCreateDatabaseIfModelChanges<ResidentContext>
+    public class ResidentInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<ResidentContext>
     {
         protected override void Seed(ResidentContext context)
         {
