@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<SouthgateMobileVillage.Models.JoinTable>
+@{
     ViewBag.Title = "Home Page";
 }
 <section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" background style="height:75vh; background-size: cover; background-image:url('/Content/images/handShake.jpg');">
@@ -17,6 +18,7 @@
 </section>
 
 <div class="row" style="margin-top:5%;">
+
     <div class="col-lg-4 col-sm-6 mb-4">
         <div class="card h-100">
             <a href="#"><img class="card-img-top" src="~/Content/images/RTrailor1.jpg" alt="mobile home"></a>
@@ -103,6 +105,26 @@
     </div>
 </div>
 
+<!----  Going to try the same layout but with a foreach looping through homes-->
 
+<div class="row" style="margin-top:5%;">
 
-
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <!----  Going to try the same layout but with a foreach looping through homes-->
+                <a href="#"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.GetHome.Photo).ToString()" alt="mobile home"></a>
+                <div class="card-body">
+                    @Html.ActionLink("New Home", "Index", "Home4Sale")
+                    <p class="card-text">
+                        <i class="fas fa-dollar-sign"></i>: 52,000<br />
+                        <i class="fas fa-expand-arrows-alt"></i>: @Html.DisplayFor(modelItem => item.GetHome.SqrFeet)<br />
+                        <i class="fas fa-bed"></i>: @Html.DisplayFor(modelItem => item.GetHome.Bedroom)<br />
+                        <i class="fas fa-toilet"></i>: @Html.DisplayFor(modelItem => item.GetHome.Bathroom)
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

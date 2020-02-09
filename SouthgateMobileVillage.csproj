@@ -190,6 +190,7 @@
     <Compile Include="Models\Home4Rent.cs" />
     <Compile Include="Models\Home4Sale.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JoinTable.cs" />
     <Compile Include="Models\Lot.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Resident.cs" />
