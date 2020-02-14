@@ -15,6 +15,11 @@ namespace SouthgateMobileVillage.Controllers
     {
         private ResidentContext db = new ResidentContext();
 
+        public ActionResult Display()
+        {
+            return View(db.Homes.ToList());
+        }
+
         // GET: HomeHome
         public ActionResult Index()
         {

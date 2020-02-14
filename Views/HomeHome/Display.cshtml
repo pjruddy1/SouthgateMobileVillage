@@ -1,0 +1,20 @@
+﻿@model IEnumerable<SouthgateMobileVillage.Models.Home>
+
+<h2>Home Listings</h2>
+<table class="table table-success" style="margin-top:10%;">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Bedroom)</th>
+        <th>@Html.DisplayNameFor(model => model.Bathroom)</th>
+        <th>@Html.DisplayNameFor(model => model.SqrFeet)</th>
+        <th>@Html.DisplayNameFor(model => model.Year)</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Bedroom)</td>
+            <td>@Html.DisplayFor(modelItem => item.Bathroom)</td>
+            <td>@Html.DisplayFor(modelItem => item.SqrFeet)</td>
+            <td>@Html.DisplayFor(modelItem => item.Year)</td>
+        </tr>
+    }
+</table>

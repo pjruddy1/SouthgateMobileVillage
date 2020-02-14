@@ -2,14 +2,14 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" background style="height:75vh; background-size: cover; background-image:url('/Content/images/handShake.jpg');">
+<section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" Background style="width:100%; background-size:cover; background-repeat:no-repeat; background-image:url('/Content/images/handShake.jpg');">
 
     <div class="container-fluid">
         <div class="row  justify-content-center align-items-center d-flex text-center h-100">
             <div class="col-12 col-md-8  h-50 ">
                 <h1 class="display-2  text-dark mb-2 mt-5 d-none d-md-block"><strong>Southgate Mobile Village</strong> </h1>
-
-                <div class="btn bg-secondary shadow-lg btn-round text-light btn-lg btn-rised">@Html.ActionLink("Find Your New Home", "Index", "Home4Sale")</div>
+                
+                @Html.ActionLink("Find Your New Home", "Action", "Controller", new { @class = "btn bg-secondary shadow-lg btn-round text-light btn-lg btn-rised", @style="margin:10%;"})
 
             </div>
 
@@ -114,7 +114,7 @@
         <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card h-100">
                 <!----  Going to try the same layout but with a foreach looping through homes-->
-                <a href="#"><img class="card-img-top" src="@Html.DisplayFor(modelItem => item.GetHome.Photo).ToString()" alt="mobile home"></a>
+                <a href="#"><img class="card-img-top" src="" alt="mobile home"></a>
                 <div class="card-body">
                     @Html.ActionLink("New Home", "Index", "Home4Sale")
                     <p class="card-text">

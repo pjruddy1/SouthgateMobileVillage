@@ -392,6 +392,7 @@
     <Content Include="Views\Resident\Details.cshtml" />
     <Content Include="Views\Resident\Edit.cshtml" />
     <Content Include="Views\Resident\Index.cshtml" />
+    <Content Include="Views\HomeHome\Display.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
