@@ -393,6 +393,7 @@
     <Content Include="Views\Resident\Edit.cshtml" />
     <Content Include="Views\Resident\Index.cshtml" />
     <Content Include="Views\HomeHome\Display.cshtml" />
+    <Content Include="Views\HomeHome\EditDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

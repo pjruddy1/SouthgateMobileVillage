@@ -20,6 +20,33 @@ namespace SouthgateMobileVillage.Controllers
             return View(db.Homes.ToList());
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDisplay([Bind(Include = "ID, Bedroom, Bathroom, SqrFeet, Year")] Home home)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(home).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Display");
+            }
+            return View(home);
+        }
+
+        public ActionResult EditDisplay(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Home home = db.Homes.Find(id);
+            if (home == null)
+            {
+                return HttpNotFound();
+            }
+            return View(home);
+        }
+
         // GET: HomeHome
         public ActionResult Index()
         {

@@ -10,11 +10,14 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Bedroom)</td>
-            <td>@Html.DisplayFor(modelItem => item.Bathroom)</td>
-            <td>@Html.DisplayFor(modelItem => item.SqrFeet)</td>
-            <td>@Html.DisplayFor(modelItem => item.Year)</td>
-        </tr>
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.Bedroom)</td>
+    <td>@Html.DisplayFor(modelItem => item.Bathroom)</td>
+    <td>@Html.DisplayFor(modelItem => item.SqrFeet)</td>
+    <td>@Html.DisplayFor(modelItem => item.Year)</td>
+    <td>
+        @Html.ActionLink("Edit", "EditDisplay", new { id = item.ID })
+    </td>
+</tr>
     }
 </table>
