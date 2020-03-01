@@ -53,9 +53,17 @@ namespace SouthgateMobileVillage.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Graphics.Add(graphic);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Graphics.Add(graphic);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Unaable to save changes. Try again and if the problem persists contact your admin");
+                }
+                
             }
 
             ViewBag.HomeID = new SelectList(db.Homes, "ID", "ID", graphic.HomeID);
@@ -87,9 +95,17 @@ namespace SouthgateMobileVillage.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(graphic).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(graphic).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Unaable to save changes. Try again and if the problem persists contact your admin");
+                }
+                
             }
             ViewBag.HomeID = new SelectList(db.Homes, "ID", "ID", graphic.HomeID);
             return View(graphic);
@@ -115,10 +131,18 @@ namespace SouthgateMobileVillage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Graphic graphic = db.Graphics.Find(id);
-            db.Graphics.Remove(graphic);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Graphic graphic = db.Graphics.Find(id);
+                db.Graphics.Remove(graphic);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

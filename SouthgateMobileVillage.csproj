@@ -48,6 +48,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -170,10 +176,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AddSaleController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\GraphicController.cs" />
-    <Compile Include="Controllers\Home4SaleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeHomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -184,14 +187,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Graphic.cs" />
     <Compile Include="Models\Home.cs" />
-    <Compile Include="Models\Home4Rent.cs" />
-    <Compile Include="Models\Home4Sale.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JoinTable.cs" />
-    <Compile Include="Models\Lot.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Resident.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -221,6 +220,7 @@
     <Content Include="Content\images\trailor3.jpg" />
     <Content Include="Content\images\trailor4.jpg" />
     <Content Include="Content\images\trailor5.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -376,7 +376,6 @@
     <Content Include="Views\AddSale\AddHome4Sale.cshtml" />
     <Content Include="Views\AddSale\Home4SaleConfirm.cshtml" />
     <Content Include="Views\Customer\PreApprovedCustomer.cshtml" />
-    <Content Include="Views\Home4Sale\Index.cshtml" />
     <Content Include="Views\HomeHome\Create.cshtml" />
     <Content Include="Views\HomeHome\Delete.cshtml" />
     <Content Include="Views\HomeHome\Details.cshtml" />
@@ -397,7 +396,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Sale\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

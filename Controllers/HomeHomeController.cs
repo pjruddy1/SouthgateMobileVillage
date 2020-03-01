@@ -81,12 +81,21 @@ namespace SouthgateMobileVillage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Bedroom,Bathroom,SqrFeet,Year")] Home home)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Homes.Add(home);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Homes.Add(home);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+            catch (Exception)
+            {
+
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system admin");
+            }
+            
 
             return View(home);
         }
@@ -115,9 +124,17 @@ namespace SouthgateMobileVillage.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(home).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(home).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Unaable to save changes. Try again and if the problem persists contact your admin");
+                }
+                
             }
             return View(home);
         }
@@ -142,10 +159,18 @@ namespace SouthgateMobileVillage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Home home = db.Homes.Find(id);
-            db.Homes.Remove(home);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Home home = db.Homes.Find(id);
+                db.Homes.Remove(home);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

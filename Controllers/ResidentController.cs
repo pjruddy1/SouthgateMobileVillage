@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SouthgateMobileVillage.DAL;
 using SouthgateMobileVillage.Models;
+using PagedList;
 
 namespace SouthgateMobileVillage.Controllers
 {
@@ -16,10 +17,49 @@ namespace SouthgateMobileVillage.Controllers
         private ResidentContext db = new ResidentContext();
 
         // GET: Resident
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.LNameSortParm = string.IsNullOrEmpty(sortOrder) ? "l_name_desc" : "";
+            ViewBag.FNameSortParm = string.IsNullOrEmpty(sortOrder) ? "f_name_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var res = from r in db.Residents select r;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                res = res.Where(s => s.LastName.Contains(searchString) || s.FirstName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "l_name_desc":
+                    res = res.OrderByDescending(s => s.LastName);
+                    break;
+                case "f_name_desc":
+                    res = res.OrderByDescending(s => s.FirstName);
+                    break;
+               
+                default:
+                    res = res.OrderBy(s => s.LastName);
+                    break;
+            }
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+
             var residents = db.Residents.Include(r => r.Home);
-            return View(residents.ToList());
+            return View(residents.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Resident/Details/5
@@ -51,11 +91,20 @@ namespace SouthgateMobileVillage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,HomeID,FirstName,LastName")] Resident resident)
         {
+
             if (ModelState.IsValid)
             {
-                db.Residents.Add(resident);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Residents.Add(resident);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Unaable to save changes. Try again and if the problem persists contact your admin");
+                }
+                
             }
 
             ViewBag.HomeID = new SelectList(db.Homes, "ID", "ID", resident.HomeID);
@@ -87,9 +136,17 @@ namespace SouthgateMobileVillage.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(resident).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(resident).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system admin");
+                }
+               
             }
             ViewBag.HomeID = new SelectList(db.Homes, "ID", "ID", resident.HomeID);
             return View(resident);
@@ -115,10 +172,18 @@ namespace SouthgateMobileVillage.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Resident resident = db.Residents.Find(id);
-            db.Residents.Remove(resident);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Resident resident = db.Residents.Find(id);
+                db.Residents.Remove(resident);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+            }
+            
         }
 
         protected override void Dispose(bool disposing)
