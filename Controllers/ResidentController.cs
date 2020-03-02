@@ -57,9 +57,7 @@ namespace SouthgateMobileVillage.Controllers
 
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-
-            var residents = db.Residents.Include(r => r.Home);
-            return View(residents.ToPagedList(pageNumber, pageSize));
+            return View(res.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Resident/Details/5
