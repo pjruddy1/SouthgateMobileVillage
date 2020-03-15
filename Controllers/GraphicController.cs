@@ -11,11 +11,13 @@ using SouthgateMobileVillage.Models;
 
 namespace SouthgateMobileVillage.Controllers
 {
+    [Authorize]
     public class GraphicController : Controller
     {
         private ResidentContext db = new ResidentContext();
 
         // GET: Graphic
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var graphics = db.Graphics.Include(g => g.Home);

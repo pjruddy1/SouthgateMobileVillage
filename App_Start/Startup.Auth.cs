@@ -54,9 +54,9 @@ namespace SouthgateMobileVillage
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "250097482680403",
+               appSecret: "b66325e18a48f0e0153d2b6ddc021512");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

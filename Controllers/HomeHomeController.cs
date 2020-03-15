@@ -11,10 +11,11 @@ using SouthgateMobileVillage.Models;
 
 namespace SouthgateMobileVillage.Controllers
 {
+    [Authorize]
     public class HomeHomeController : Controller
     {
         private ResidentContext db = new ResidentContext();
-
+        [AllowAnonymous]
         public ActionResult Display()
         {
             return View(db.Homes.ToList());
@@ -48,6 +49,7 @@ namespace SouthgateMobileVillage.Controllers
         }
 
         // GET: HomeHome
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Homes.ToList());

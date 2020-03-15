@@ -12,11 +12,13 @@ using PagedList;
 
 namespace SouthgateMobileVillage.Controllers
 {
+    [Authorize]
     public class ResidentController : Controller
     {
         private ResidentContext db = new ResidentContext();
 
         // GET: Resident
+        [AllowAnonymous]
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
